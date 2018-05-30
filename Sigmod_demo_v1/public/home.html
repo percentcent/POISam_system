@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <title>Home</title>
+ 
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+
+    <style type="text/css">
+    .navbar-nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #3399FF;
+}
+
+.navbar-nav li {
+    float: left;
+}
+
+.navbar-nav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 12px 14px;
+    text-decoration: none;
+}
+
+.navbar-nav li a:hover {
+    background-color: #3399FF;
+}
+
+#dataset_selection{
+	height:500px;
+	position:fixed;
+	width:1700px;
+	top:100px;
+	margin-left: 100px;
+}
+
+#selectDataset{
+	margin-left: 100px;
+}
+
+p { height:50px; line-height:50px; width:700px; overflow:hidden; }
+
+	</style>
+
+</head>
+<body>
+
+	<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+  <!-- Brand/logo -->
+  <!-- a class="navbar-brand" href="index.html">Home</a>
+  
+  <! Links -->
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" href="/">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/tweet">Twitter</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/property">RealEstate</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/suburb">Suburb</a>
+    </li>
+  </ul>
+</nav>
+
+	<div id="dataset_selection">
+		<p><b>Please select the dataset you want to explore! </b></p>
+		<select id='selectDataset'> 
+					<option value="Twitter">Twitter</option>
+					<option value="RealEstate">RealEstate</option>
+					<option value="Suburb">Suburb</option>
+		</select>
+		
+		<button type="button" id="button_selection" onClick="selectDataset();">Click to Explore!</button> 
+		
+</div>
+</body>
+<script type="text/javascript">
+	function selectDataset(){
+		var mySelect = document.getElementById('selectDataset');
+		var index =mySelect.selectedIndex;
+		console.log(index);
+		if(index == 0){
+			window.location.href = "/tweet";
+		}
+		else if(index == 1){
+			window.location.href = "/property";
+		}
+		else
+			window.location.href ="/suburb";
+	}
+</script>
+
+</html>

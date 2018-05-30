@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>real Estate</title>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+
+    <script src="//maps.google.com/maps/api/js?key=AIzaSyCYCfaamPFUo6ePLlnUf68vgOuFcXeyiwo"></script>
+     <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="//d3js.org/d3.v3.min.js"></script>
+    
+    <script type="text/javascript" src="js/suburb.js"></script>
+
+<script type="text/javascript" src="http://underscorejs.org/underscore-min.js"></script>
+  <link rel="stylesheet" href="css/mystyle.css" type="text/css"/>  
+
+</head>
+<body onload="initMap();">
+
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+  <!-- Brand/logo -->
+  <!-- a class="navbar-brand" href="index.html">Home</a>
+  
+  <! Links -->
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" href="/">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/tweet">Twitter</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/property">RealEstate</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/suburb">Suburb</a>
+    </li>
+  </ul>
+</nav>
+
+
+    <div id="map_suburb">
+    </div>
+
+  <script>
+        var zoomLevel = 13;
+        map = new google.maps.Map(document.getElementById('map_suburb'), 
+        {
+            zoom : zoomLevel,
+            center: {lat : -37.804663448, lng : 144.957996168},
+            style : google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
+            mapTypeId: google.maps.MapTypeId.RoadMap,
+            scaleControl : true,
+            styles: 
+            [
+    {
+    "elementType": "geometry.fill",
+    "stylers": [
+      {
+        "saturation": -45
+      },
+      {
+        "lightness": 45
+      }
+    ]
+  },
+  {
+    "featureType": "administrative.land_parcel",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "administrative.neighborhood",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "poi",
+    "elementType": "labels.text",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "poi.business",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "road",
+    "elementType": "labels",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "road",
+    "elementType": "labels.icon",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "road.arterial",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "road.highway",
+    "elementType": "labels",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "road.local",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "transit",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "water",
+    "elementType": "labels.text",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "elementType": "labels",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  }
+]
+        });
+
+    
+</script>
+</body>
+
+</html>

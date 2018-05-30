@@ -1,0 +1,309 @@
+html, body {
+            width : 100%;
+            height : 100%;
+            margin : 0;
+            padding : 0;
+        }
+
+        #map{
+            height: 95%;
+            width: 80%;
+            margin : 0;
+            padding : 0;
+            margin-left: 20%;
+            float:left;
+
+        }
+
+        #map_suburb{
+          height: 95%;
+            width: 100%;
+            margin : 0;
+            padding : 0;
+            margin-left: 0px;
+            float:left;
+        }
+
+        #map img {
+      max-width: none;
+    }
+        
+       #selectBox{
+            z-index: 10;
+            width: 20%;
+            height: 100%;
+            position: fixed;
+            float:left;
+            top: 60px;       
+            left: 0;        
+           
+        }
+
+        #deleteButton{
+          position: absolute;
+          top: 0px;
+          right: 0px;
+          width: 20px;
+           height: 20px;
+
+          
+        }
+
+        .feature_ul ul{
+            list-style-type: none;
+            left-margin :0;
+            left-padding:0;
+            background: #f8f8f8;
+        }
+
+        .feature_ul ul a{
+            display: block;
+            width:150px;
+            height:30px;
+            line-height: 30px;
+            background: #f8f8f8;
+        }
+
+
+
+        button{
+            margin-left: 50px;
+            width: 100px;
+            height: 20px;
+            
+        }
+     
+
+        .attr{
+          margin-left: 50px;
+            width: 100px;
+            height: 40px;
+        }
+
+
+        .property, .property svg{
+            position: absolute;
+        }
+
+        .allproperty svg, .allproperty, .ShowProperty, .ShowProperty svg{
+          position: absolute;
+        }
+
+        .hidenProperty, .hidenProperty svg{
+          position: absolute;
+        }
+
+        .ShowProperty svg, .hidenProperty svg, .property svg {
+            width: 60px;
+            height: 60px;
+            padding-right: 100px;
+            font: 10px sans-serif;
+        }
+
+        .allproperty svg{
+            width: 30px;
+            height: 30px;
+            padding-right: 100px;
+            font: 10px sans-serif;
+        }
+
+        .tooltip_map{
+            width: auto;
+            height: auto;
+            text-align: left;
+            visibility: hidden;
+            position: absolute;
+            border: 1px solid grey;
+            padding: 5px;
+            font: 15px sans-serif;
+            background: white;
+            border-radius: 4px;
+            pointer-events: none;
+        }
+
+        .representList{
+          position: fixed;
+          top: 0px;
+          right: 0px;
+          background:#f8f8f8;
+          word-break:break-all;
+          transition: width 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s;
+        }
+
+        #sim1, #sim2, #sim3{
+          border: 5px solid ;
+          border-color: transparent;
+        }
+
+        #simTable{
+          width:100%;
+          height:100px;
+        }
+
+        tr{
+          height:50px;
+        }
+
+        input{
+          margin-left: 50px;
+            width: 10px;
+            height: 20px;
+        }
+  .slidecontainer {
+    width: 100px; /* Width of the outside container */
+  }
+
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 10px; /* Set a specific slider handle width */
+    height: 10px; /* Slider handle height */
+    background: #4CAF50; /* Green background */
+    cursor: pointer; /* Cursor on hover */
+}
+
+/* The slider itself */
+  .slider {
+    -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none;
+    width: 100%; /* Full-width */
+    height: 10px; /* Specified height */
+    background: #d3d3d3; /* Grey background */
+    outline: none; /* Remove outline */
+    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+  }
+
+  .slider:hover {
+    opacity: 1;
+  }
+
+  .slider::-moz-range-thumb {
+    width: 10px;
+    height: 10px;
+    background: #4CAF50;
+    cursor: pointer;
+  }
+
+  #kItem{
+    margin-left: 50px;
+  }
+
+  #Distance{
+    margin-left: 50px;
+  }
+
+  #spider_chart{
+    width:230px;
+    height:150px;
+    float:left;
+    top:690px;
+  }
+
+
+
+ .axis path,
+  .axis line {
+    fill: none;
+    stroke: black;
+    shape-rendering: crispEdges;
+  }
+
+  .axis text {
+      font-family: sans-serif;
+      font-size: 11px;
+  }
+  
+  #heatmap_div{
+
+  width: 700px; 
+  top: 105px;
+  height: 1200px;
+  right:0px;
+  
+  }
+
+  #container{
+  position: absolute;
+  width: 90%; 
+  top: 105px;
+  height:800px;
+  overflow-y: auto;
+  overflow-x: auto;
+  right:10px;
+  }
+
+
+  #pic{
+    top:0px;
+    text-align:center;
+      }
+
+  #chooseBaseline, #baselineSub{
+    background-color: lightgray;
+            margin-left: 50px;
+            width: 100px;
+            height: 50px;
+            border: none;
+        
+        
+        
+          text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+        }
+
+
+.select,
+.chosen-select,
+.chosen-select-no-single,
+.chosen-select-no-results,
+.chosen-select-deselect,
+.chosen-select-rtl,
+.chosen-select-width {
+  width: 150px;
+}
+
+.navbar-nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #3399FF;
+}
+
+.navbar-nav li {
+    float: left;
+}
+
+.navbar-nav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 10px 12px;
+    text-decoration: none;
+}
+
+.navbar-nav li a:hover {
+    background-color: #3399FF;
+}
+
+.alert {
+    display: none;
+    position: fixed;
+    top: 10%;
+    left: 50%;
+    min-width: 200px;
+    margin-left: -100px;
+    z-index: 99999;
+    padding: 15px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.alert-success {
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+}

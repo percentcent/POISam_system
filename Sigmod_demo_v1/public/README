@@ -1,0 +1,48 @@
+README
+
+mkdir ---
+cd ----
+
+npm init
+entry point: app.js
+
+npm install express --save
+
+in the dir, create app.js
+
+///////
+npm install express-generator -g
+
+express --view=pug myapp
+
+cd myapp
+npm install
+
+//////
+npm install heap
+npm install node-kmeans
+
+////
+
+DEBUG=myapp:* npm start
+
+sudo apt-get install nginx
+
+add to http{
+	
+}
+
+    server 127.0.0.1:3000;
+}
+
+server {
+    listen 80;
+    server_name localhost;
+upstream nodejs {
+
+    location / {
+        proxy_pass http://nodejs;
+    }
+}
+
+sudo nginx -s reload
