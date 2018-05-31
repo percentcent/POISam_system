@@ -12,6 +12,7 @@ var router = express.Router();
 var RTree = require('./models/spatialTree.js');
 var greedy = require('./models/greedy.js');
 var greedyPro = require('./models/greedy_pro.js');
+var greedySub = require('./models/greedy_suburb.js')
 
 var index = require('./routes/index');
 var users = require('./routes/users');
@@ -116,26 +117,11 @@ app.get('/suburb',function(req,res){
 });
 
 app.post('/suburb',function(req,res){
-	var response = [];
-	var data = fs.readFileSync(path.join(__dirname,'/public/suburb300.csv'));
-  	var propertydata = data.toString();
-  	var line = propertydata.split('\n');
-  	var len = line.length;
-  	for(var i =0 ;i<len; i++){
-  		var lineElem = line[i].split(',');
-  		var name = lineElem[0];
-  		var Lat = parseFloat(lineElem[1]);
-    	var Lng = parseFloat(lineElem[2]);
-    	var num = parseInt(lineElem[3]);
-    	var temp = {
-    		name:name,
-    		Lat:Lat,
-    		Lng:Lng,
-    		num:num
-    	};
-    	response.push(temp);
-  	}
+	
+	var response = greedySub.selectSuburb();
+	
 	res.json(response);
+	
 });
 
 app.get('/property',function(req,res){

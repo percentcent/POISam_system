@@ -302,6 +302,19 @@ html, body {
     border-radius: 4px;
 }
 
+.alertSub {
+    display: none;
+    position: fixed;
+    top: 10%;
+    left: 20%;
+    min-width: 200px;
+    margin-left: -100px;
+    z-index: 99999;
+    padding: 15px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
 .alert-success {
     color: #3c763d;
     background-color: #dff0d8;

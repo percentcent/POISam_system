@@ -178,7 +178,7 @@ function zoomOutWindow(){
     var data = res.selected;
     var proData = res.proList;
     d3Show(data,proData);
-    console.log(data);
+    console.log(res);
     NewRepresentSet = data;
     heapList = proData;
     var output = document.getElementById("allProperty");
@@ -227,7 +227,7 @@ function zoomInWindow(){
     var data = res.selected;
     var proData = res.proList;
     d3Show(data,proData);
-    console.log(data);
+    console.log(res);
     NewRepresentSet = data;
     heapList = proData;
     var output = document.getElementById("allProperty");
@@ -272,7 +272,7 @@ function panningWindow(){
     var data = res.selected;
     var proData = res.proList;
     d3Show(data,proData);
-    console.log(data);
+    console.log(res);
     NewRepresentSet = data;
     heapList = proData;
     var output = document.getElementById("allProperty");

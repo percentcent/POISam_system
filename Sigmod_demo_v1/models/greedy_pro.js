@@ -238,11 +238,16 @@ function setRepresentedSet (oldO,NewRepresentSet,features){
   }
   for(var i =0; i<O.length; i ++){
       //var max = sim_objects(O[i],NewRepresentSet[0],features);
-      var max = simMetric[i][NewRepresentSet[0].index];
-      var maxIndex = 0;
-    for(var j =1; j < NewRepresentSet.length; j++){
+      var max = -1;
+      var maxIndex = -1;
+      var itself = 0;
+    for(var j =0; j < NewRepresentSet.length; j++){
       var temp = NewRepresentSet[j];
       //var tempSim = sim_objects(O[i],temp,features);
+      if(temp.index == i){
+        itself = 1;
+        break;
+      }
       var tempSim = simMetric[i][temp.index];
       if(tempSim > max){
        max = tempSim;
@@ -250,7 +255,7 @@ function setRepresentedSet (oldO,NewRepresentSet,features){
 
       }
     }
-    if(NewRepresentSet[maxIndex] != O[i])
+    if(itself == 0)
       heapList[maxIndex].push(O[i]);
 
   }
