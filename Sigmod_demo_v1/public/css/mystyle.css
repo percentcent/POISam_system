@@ -17,10 +17,10 @@ html, body {
 
         #map_suburb{
           height: 95%;
-            width: 100%;
+            width: 80%;
             margin : 0;
             padding : 0;
-            margin-left: 0px;
+            margin-left: 20%;
             float:left;
         }
 
@@ -195,13 +195,23 @@ html, body {
   }
 
   #spider_chart{
-    width:230px;
-    height:150px;
+    
+    width:20%;
+    height:25%;
     float:left;
-    top:690px;
+    top:100px;
+    position: fixed;
   }
 
-
+ #spider_container{
+    z-index: 10;
+    width: 20%;
+    height: 100%;
+    position: fixed;
+    float:left;
+    top: 60px;       
+    left: 0;
+ }
 
  .axis path,
   .axis line {
@@ -306,7 +316,7 @@ html, body {
     display: none;
     position: fixed;
     top: 10%;
-    left: 20%;
+    left: 35%;
     min-width: 200px;
     margin-left: -100px;
     z-index: 99999;
@@ -319,4 +329,13 @@ html, body {
     color: #3c763d;
     background-color: #dff0d8;
     border-color: #d6e9c6;
+}
+
+#suburb_text{
+  
+    float:left;
+    left:30px;
+    width:18%;
+    top:40%;
+    position: fixed;
 }

@@ -38,18 +38,22 @@
     </li>
   </ul>
 </nav>
-
+  <div id="spider_container">
+    <div id="spider_chart">
+    </div>
+    <p id="suburb_text"><b>Representative Suburbs are chosen with above attributes.</b></p>
+  </div>
 
     <div id="map_suburb">
     </div>
     <div class="alertSub"></div>
 
   <script>
-        var zoomLevel = 11;
+        var zoomLevel = 11.5;
         map = new google.maps.Map(document.getElementById('map_suburb'), 
         {
             zoom : zoomLevel,
-            center: {lat : -37.804663448, lng : 144.957996168},
+            center: {lat : -37.804663448, lng : 144.987996168},
             style : google.maps.MapTypeControlStyle.HORIZONTAL_BAR,
             mapTypeId: google.maps.MapTypeId.RoadMap,
             scaleControl : true,
@@ -170,6 +174,67 @@
 ]
         });
 
+        var names_text = ["Price","Distance to GP","Supermarket","Hospital","Train Time to CBD","Shopping center"];
+document.getElementById("spider_chart").innerHTML = "";
+    var div_height = document.getElementById("spider_chart").clientHeight;
+    var div_width = document.getElementById("spider_chart").clientWidth;
+
+    var margin = {top: 5, right: 5, bottom: 0, left: 0};
+    var width = div_width - margin.left - margin.right;
+    var height = div_height - margin.top - margin.bottom;
+
+    var canvas_spider = d3.select("#spider_chart")
+        .append("svg")
+        .attr("width", div_width)
+        .attr("height", div_width).append("g");
+    var lines = [];
+    var texts = [];
+  //var polygons = [];
+  var values_with_hilight = [];
+
+    var size_of_edge = Math.min(width, height) / 2 - 10;
+    var center_x = width / 2 + margin.left;
+    var center_y = height / 2 + margin.top;
+
+      /*Drawing Axes*/
+    for (var i = 0; i < 6; i++) {
+        var x_end = Math.cos(i * 2 * Math.PI / 6) * size_of_edge;
+        var y_end = Math.sin(i * 2 * Math.PI / 6) * size_of_edge;
+        lines[i] = canvas_spider.append("line")
+            .attr("x1", center_x)
+            .attr("y1", center_y)
+            .attr("x2", center_x + x_end)
+            .attr("y2", center_y + y_end)
+            .attr("stroke", "black")
+            .attr("stroke-width", 1);
+      
+      var text_x = center_x + x_end*1.1;
+      var text_y = center_y + y_end*1.1;
+      
+      if(x_end<0){
+        text_x -= 30;
+        if(y_end < 0){
+          text_y-=8;
+          text_x -= 8;
+        }else if(y_end > 0){
+          text_y+=8;
+          text_x -= 8;
+        }else if(y_end == 0){
+          text_x -= 25;
+          text_y += 10;
+        }
+      }
+      
+      /****
+      ***** Adding text
+      **********/
+            texts[i]=canvas_spider.append("text")
+             .attr("x", text_x)
+             .attr("y", text_y)
+             .attr("font-size", 12)
+             .text(names_text[i])
+             .attr("dy", ".20em");
+    }
     
 </script>
 </body>

@@ -152,8 +152,8 @@ function d3Show(data,suburbsData){
                         return d.name;
 
                       })
-                      .attr("x",25)
-                      .attr("y",35)
+                      .attr("x",5)
+                      .attr("y",25)
                       .attr("font-size", 10)
                       .attr("font-family", "simsum")
                       .attr("font-style", "italic");   
@@ -326,8 +326,8 @@ function showSuburbs(i,data,suburbsData){
                         return d.name;
 
                       })
-                      .attr("x",25)
-                      .attr("y",35)
+                      .attr("x",5)
+                      .attr("y",25)
                       .attr("font-size", 10)
                       .attr("font-family", "simsum")
                       .attr("font-style", "italic");   
