@@ -241,6 +241,8 @@ function showSuburbs(i,data,suburbsData){
     map.setZoom(12);
   var highlight = data[i];
   var representedSet = suburbsData[i];
+  representedSet.push(data[i]);
+  var dataindex = representedSet.length-1;
   //console.log(representedSet);
   
   var index = i;
@@ -420,10 +422,13 @@ function showSuburbs(i,data,suburbsData){
                     
 
                 var r =10;
-                var max = representedSet.length-1;
+                var maxIndex = representedSet.length-1;
                 show.append("text")
                       .text(function(d,i){
+                        if(i != maxIndex)
                         return d.name;
+                        else
+                          return "";
 
                       })
                       .attr("x",25)
@@ -439,13 +444,23 @@ function showSuburbs(i,data,suburbsData){
                     .attr("stroke",function(){
                         return colores_google(index);
                     })
-                    .attr("stroke-opacity",0.6)
+                    .attr("stroke-opacity",function(d,i){
+                      if(i != dataindex)
+                        return 0.6;
+                      else
+                        return 0;
+                    })
                     .attr("stroke-width","2px")
                     .attr("fill",function(d){
                         return colores_google(index);
 
                     })
-                    .attr("fill-opacity",0.6)
+                    .attr("fill-opacity",function(d,i){
+                      if(i != dataindex)
+                        return 0.6;
+                      else
+                        return 0;
+                    })
                     .on("click",function(d){
                         showRepresented(d);
                     });
