@@ -7,6 +7,7 @@ var file = require('./readFile.js');
 
 var simMetric = [];
 
+//interactive object selection, panning window
 exports.panningWindow = function(bounds,oldBounds,Dset,k,Distance){
   var flag = 1;
 	var D = [];
@@ -14,8 +15,10 @@ exports.panningWindow = function(bounds,oldBounds,Dset,k,Distance){
 	var candidate = [];
   var alldata = RTree.query(bounds,range,w,h);
   var c_num = alldata.length;
+  //get the candidate objects with panning operation
 	candidate = RTree.queryPanning(bounds,range,w,h,oldBounds);
 	console.log("candidate_num",candidate.length);
+  //select sampling objects using greedy approaches
 	var sample = Sampling_select(candidate,candidate.length);
 	console.log("sample",sample.length);
 
@@ -30,6 +33,7 @@ exports.panningWindow = function(bounds,oldBounds,Dset,k,Distance){
 
 }
 
+//interactive object selection, zooming in window
 exports.zoomInWindow = function(bounds,Dset,k,Distance){
   var flag = 1;
 	var D = [];
@@ -37,6 +41,7 @@ exports.zoomInWindow = function(bounds,Dset,k,Distance){
 	var candidate = [];
   var alldata = RTree.query(bounds,range,w,h);
   var c_num = alldata.length;
+  //get the candidate objects with zoomin operation
 	candidate = RTree.queryZoomIn(bounds,range,w,h,D);
 	console.log("candidate_num",candidate.length);
 	var sample = Sampling_select(candidate,candidate.length);
@@ -51,6 +56,7 @@ exports.zoomInWindow = function(bounds,Dset,k,Distance){
 	return response;
 	}
 
+//interactive object selection, zooming out window
 exports.zoomOutWindow = function(bounds,oldBounds,reserve_C,k,Distance){
   var flag = 1;
 	var candidate = [];
@@ -75,6 +81,7 @@ exports.zoomOutWindow = function(bounds,oldBounds,reserve_C,k,Distance){
 	
 }
 
+//basic/initial object selection(consider both textual and geospatial attributes) without interative operation
 exports.SOSwindow = function(bounds,k,Distance,flag){
 	var candidate = [];
 	candidate = RTree.query(bounds,range,w,h);
@@ -107,6 +114,7 @@ exports.showFull = function(bounds,kItem){
   return response;
 }
 
+//basic/initial object selection(consider only geospatial attributes) without interative operation
 exports.SOSspatial = function(bounds,k,Distance){
   var features = [];
   var sample = [];
@@ -289,6 +297,8 @@ function initialHeap(O,flag,bounds){
 
 }
 
+//divide all the objects in the window into groups, and each group is represented by the representative object
+//only the representative object will be shown on map and when it is clicked, the other ones in that group are shown.
 function setRepresentedSet (oldO,NewRepresentSet,flag,bounds){
 
   var O = [];
@@ -327,6 +337,7 @@ function setRepresentedSet (oldO,NewRepresentSet,flag,bounds){
   return heapList;
 }
 
+//greedy selection algorithms
 function greedSelect(oldO,k,D,bounds,Distance,flag){
 	//O:candidate set, D:reserved, k, Set:all objects
 

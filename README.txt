@@ -3,6 +3,7 @@ In this demonstration we present POIsam, a visualization system supporting the f
 
 POIsam: a System for Efficient Selection of Large-scale Geospatial Data on Maps | Request PDF. Available from: https://www.researchgate.net/publication/325374919_POIsam_a_System_for_Efficient_Selection_of_Large-scale_Geospatial_Data_on_Maps [accessed Aug 15 2018].
 
+A.how to run the project locally
 ---install nodejs
 (1)Ubuntu
 curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
@@ -28,6 +29,7 @@ npm start
 ---visit the offline system with browser
 localhost:3000
 
+B. system functionalities
 ---some details about the functionalities of the system
 (1)both Twitter and RealEstate pages, you can set value/k and distance;
 (2)for RealEstate, you can define your personalised attributes, and then click "apply";
@@ -35,4 +37,17 @@ localhost:3000
 (4)for twitter and realEstate, click the representative objects on the map, the detailed analysis infomation will pop up on the right. click the delete button "X" at the upper right corner, you can return to the previous page.
 (5)support ISOS, zoom-in, zoom-out, panning
 (6)for suburb page, some representative suburbs are selected. when you click a suburb, other suburbs represented by it will pop up. You can then click one of the highlighted suburbs to go to the house-level page of that suburb, which is just similar to the RealEstate page.
+
+C.code
+---code for object selection and interactive object selection
+In the folder 'models', greedy.js includes the code for object selection of Twitter data. 
+greedy_pro.js for realEstate data and greedy_suburb.js for suburb data.
+spatialTree.js and readFile.js is about loading the data and making index.
+
+You can mainly refer to greedy.js for object selection. 
+
+D.dataset
+---dataset
+tweetProcessed_subset.txt is a small demo dataset for twitter selection and melbourne_vis.csv is for RealEstate demo. The suburb.csv is for suburb page.
+All the three datasets are in the folder 'models'.
 
